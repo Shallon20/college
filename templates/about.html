@@ -1,0 +1,152 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>About Us</title>
+{% endblock %}
+
+{% block content %}
+    <!-- Who We Are -->
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <h2 class="underline-title">Who We Are</h2>
+        </div>
+        <p class="text-center">
+            Ushindi College was founded in 2002 with a clear vision: to empower students through transformative
+            education that prepares them for real-world challenges. From its humble beginnings as a small technical
+            institute, Ushindi has grown into a vibrant institution known for academic excellence, innovation, and
+            holistic development.
+        </p>
+        <p class="text-center">
+            Located in the heart of Kenya, the college serves a diverse student body across disciplines such as
+            technology, business, health sciences, and education. Over the years, we have forged strong partnerships
+            with industry leaders and global institutions to ensure our students receive relevant, world-class training.
+        </p>
+        <p class="text-center">
+            At Ushindi, our focus goes beyond academics. We nurture leadership, creativity, and ethical responsibility
+            cultivating graduates who are not only skilled professionals but also changemakers in their communities.
+            With a legacy of thousands of alumni making a difference globally, Ushindi College continues to rise as a
+            beacon of opportunity and success.
+        </p>
+    </div>
+
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <h2 class="underline-title">Why Choose Us</h2>
+        </div>
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <i class="fas fa-award fa-2x mb-3 text-primary"></i>
+                    <h5 class="fw-bold">Quality Guaranteed</h5>
+                    <p>We maintain top-tier education standards and internationally recognized programs.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <i class="fas fa-clock fa-2x mb-3 text-success"></i>
+                    <h5 class="fw-bold">Timely Completion</h5>
+                    <p>We ensure academic programs and support services are delivered on time.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <i class="fas fa-hand-holding-usd fa-2x mb-3 text-warning"></i>
+                    <h5 class="fw-bold">Student Financing</h5>
+                    <p>Access to scholarships, grants, and student loan guidance is available.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <i class="fas fa-users fa-2x mb-3 text-danger"></i>
+                    <h5 class="fw-bold">Vibrant Campus Life</h5>
+                    <p>Clubs, sports, and events that enrich your student journey.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center mt-5">
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm">
+                    <h1 class="fw-bold text-primary">8,000+</h1>
+                    <p>Students</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm">
+                    <h1 class="fw-bold text-success">100+</h1>
+                    <p>Staff</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm">
+                    <h1 class="fw-bold text-warning">4,000+</h1>
+                    <p>Alumni</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <h2 class="underline-title">Vision, Mission & Values</h2>
+        </div>
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <h5 class="fw-bold">Vision</h5>
+                    <p>To be a leading center of academic excellence and innovation in education.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <h5 class="fw-bold">Mission</h5>
+                    <p>To educate, empower, and inspire individuals for global success and impact.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <h5 class="fw-bold">Core Values</h5>
+                    <p>Integrity, Excellence, Inclusivity, Collaboration, Sustainability.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <h5 class="fw-bold">Philosophy</h5>
+                    <p>Student-centered learning that bridges theory and real-world application.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- College Staff -->
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <h2 class="underline-title">College Leadership</h2>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="Dean">
+                <h6>Dr. Jane Doe</h6>
+                <p class="text-muted">Dean</p>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="Vice Dean">
+                <h6>Dr. John Smith</h6>
+                <p class="text-muted">Vice Dean</p>
+            </div>
+            <!-- Add more staff as needed -->
+        </div>
+    </div>
+
+    <!-- Alumni Association -->
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <h2 class="underline-title">Alumni Association</h2>
+        </div>
+        <p class="text-center">Our alumni network connects past graduates for mentorship, collaboration, and
+            opportunity. Join the community that continues to grow and impact the world.</p>
+        <div class="text-center mt-3">
+            <a href="#" class="btn btn-outline-dark px-4 py-2">Learn More</a>
+        </div>
+    </div>
+
+{% endblock %}
