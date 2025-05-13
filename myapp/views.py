@@ -7,3 +7,15 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def courses(request):
+    return render(request, 'courses.html')
+
+
+def officeOfDos(request):
+    return render(request, 'dos.html')
+
+
+def studentAssociation(request):
+    return render(request,'students-association.html')

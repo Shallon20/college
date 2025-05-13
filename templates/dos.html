@@ -1,0 +1,74 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>Dean Of Students Office</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="underline-title-wrap">
+            <h2 class="underline-title">Office Of The Dean Of Students</h2>
+        </div>
+        <div class="row m-auto">
+            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam at cupiditate distinctio expedita
+                illo incidunt ipsum iste maiores minima nihil nostrum odit, perspiciatis reprehenderit sequi soluta
+                suscipit voluptatibus! Architecto!</p>
+            <div class="d-flex justify-content-between p-3" style="background-color: #ededed; border-radius: 7px;">
+                <div class="col-sm-3 mb-3">
+                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
+                <h5>Dr James Muriuki</h5>
+                <p class="card-text"><small class="text-muted">Dean Of Students</small></p>
+            </div>
+            <div class="col-sm-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Contacts</h4>
+                        <h5>Office Of The Dean Of Students</h5>
+                        <p>Ushindi College,</p>
+                        <p>P.O. Box 1023-00100, Machakos, Kenya</p>
+                        <p>Email: deanstudents@ush.ac.ke</p>
+                        <p>Phone: +254712345678</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <h4 class="text-center">Message from the Dean Of Students</h4>
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aspernatur eaque enim esse est et excepturi fuga ipsum maiores, modi nostrum, praesentium qui reiciendis saepe sapiente similique sint soluta, suscipit.</span><span>Dolores obcaecati officia optio quidem unde voluptatibus! Beatae blanditiis debitis distinctio doloribus enim eos laboriosam laudantium, magnam mollitia numquam obcaecati omnis optio perspiciatis provident quo ratione recusandae repellendus tempore unde!</span>
+            </p>
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut doloribus ea eum fuga hic illum, ipsam minima molestiae mollitia natus nemo nostrum, nulla officia omnis quibusdam recusandae sint vero?</span><span>Animi architecto asperiores assumenda dignissimos fugiat, hic illo, impedit neque non officia reiciendis saepe sint tempora? Cupiditate doloremque est, explicabo fuga in laboriosam molestiae non optio perferendis perspiciatis similique tempora?</span>
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet eligendi explicabo impedit maxime quaerat
+                quibusdam quod suscipit. Aliquid, animi illo perferendis quaerat sunt voluptas! Ad corporis facilis
+                magnam nam tempore.</p>
+            <h5><small class="text-muted">AG. DEAN OF STUDENTS</small></h5>
+        </div>
+        <div class="row my-4">
+            <h4 class="text-center">STAFF</h4>
+            <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa, est explicabo iste
+                laboriosam quo recusandae sit. Accusamus cum, ipsa molestiae nam nemo quis sequi tempore, temporibus
+                veniam voluptate voluptatibus.</p>
+            <div class="col-md-3">
+                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
+                <h5>Dr Pamela Nzioki</h5>
+                <p class="card-text"><small class="text-muted">Assistant Dean Of Students</small></p>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
+                <h5>Dr Pamela Nzioki</h5>
+                <p class="card-text"><small class="text-muted">Assistant Dean Of Students</small></p>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
+                <h5>Dr Pamela Nzioki</h5>
+                <p class="card-text"><small class="text-muted">Assistant Dean Of Students</small></p>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
+                <h5>Dr Pamela Nzioki</h5>
+                <p class="card-text"><small class="text-muted">Assistant Dean Of Students</small></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

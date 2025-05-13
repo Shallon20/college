@@ -55,18 +55,18 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'courses' %}">Courses</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="studentLifeDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">Student Life</a>
                         <ul class="dropdown-menu" aria-labelledby="studentLifeDropdown">
-                            <li><a class="dropdown-item" href="#">Dean Of Students Office</a></li>
-                            <li><a class="dropdown-item" href="#">Students Association</a></li>
-                            <li><a class="dropdown-item" href="#">International Students</a></li>
+                            <li><a class="dropdown-item" href="{% url 'officeOfDos' %}">Dean Of Students Office</a></li>
+                            <li><a class="dropdown-item" href="{% url 'studentAssociation' %}">Students Association</a></li>
                             <li><a class="dropdown-item" href="#">Job Placements & Internship</a></li>
                             <li><a class="dropdown-item" href="#">Sports & Recreation</a></li>
                             <li><a class="dropdown-item" href="#">Clubs</a></li>
                             <li><a class="dropdown-item" href="#">Accommodation</a></li>
+                            <li><a class="dropdown-item" href="#">Dispensary</a></li>
                             <li><a class="dropdown-item" href="#">Cafeteria</a></li>
                         </ul>
                     </li>
