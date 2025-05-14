@@ -1,0 +1,135 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>Hostel Accommodation</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="text-center fw-bold mb-4">Hostel Accommodation</h2>
+            </div>
+        </div>
+        <p class="text-center mb-5">Ushindi College provides safe, affordable, and well-maintained hostels for our
+            students. Apply below to reserve your spot.</p>
+
+        <!-- Hostel Details -->
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div id="hostelCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <img src="{% static 'img/hostel.jpg' %}" class="d-block w-100" alt="Dorm 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'img/beds.jpg' %}" class="d-block w-100" alt="Dorm 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'img/beds1.jpg' %}" class="d-block w-100" alt="Dorm 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'img/showeroom.jpg' %}" class="d-block w-100" alt="Dorm 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#hostelCarousel"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#hostelCarousel"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <h3>Olive Hostel</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">On-campus & off-campus hostels available</li>
+                    <li class="list-group-item">24/7 security & supervision</li>
+                    <li class="list-group-item">2, 4, and 6-bed options</li>
+                    <li class="list-group-item">Access to clean water, Wi-Fi and laundry</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Second Hostel Details -->
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div id="palmHostelCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <img src="{% static 'img/beds.jpg' %}" class="d-block w-100" alt="Palm Dorm 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'img/showeroom.jpg' %}" class="d-block w-100" alt="Palm Dorm 2">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#palmHostelCarousel"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#palmHostelCarousel"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <h3>Palm Hostel</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Spacious rooms with natural lighting</li>
+                    <li class="list-group-item">Quiet study areas & shared lounge</li>
+                    <li class="list-group-item">4-bed and 6-bed options only</li>
+                    <li class="list-group-item">Access to clean water, Wi-Fi and laundry</li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <!-- Application Form -->
+        <h3 class="text-center fw-bold mb-4">Hostel Application Form</h3>
+        <form>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your full name">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Student ID / Reg No</label>
+                    <input type="text" class="form-control" placeholder="Your student ID">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" placeholder="07XXXXXXXX">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="your@email.com">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Preferred Hostel Type</label>
+                <select class="form-select">
+                    <option selected disabled>Choose...</option>
+                    <option>2-Bed Room</option>
+                    <option>4-Bed Room</option>
+                    <option>6-Bed Room</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Additional Notes</label>
+                <textarea class="form-control" rows="3" placeholder="Any medical conditions, preferences..."></textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary">Submit Application</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

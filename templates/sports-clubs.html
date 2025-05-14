@@ -1,0 +1,96 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>Sports & Clubs</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="text-center fw-bold mb-4">Sports & Student Clubs</h2>
+            </div>
+        </div>
+        <p class="text-center mb-5">At Ushindi College, we believe in a vibrant student life. From athletics to art,
+            explore opportunities to grow, lead, and have fun.</p>
+
+        <!-- Sports Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/football.jpg' %}" alt="">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Football Club</h5>
+                        <p>Join our competitive football team and participate in national-level tournaments.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/basketball.jpg' %}" alt="">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Basketball</h5>
+                        <p>Train and compete with fellow students on our modern courts and leagues.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/gymfitness.jpg' %}" alt="">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Fitness & Gym</h5>
+                        <p>Maintain a healthy lifestyle in our well-equipped student fitness center.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/basketball.jpg' %}" alt="">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Basketball</h5>
+                        <p>Train and compete with fellow students on our modern courts and leagues.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/gymfitness.jpg' %}" alt="">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Fitness & Gym</h5>
+                        <p>Maintain a healthy lifestyle in our well-equipped student fitness center.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clubs Section -->
+        <h3 class="text-center fw-bold mb-4">Student Clubs</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100 text-center">
+                    <i class="fas fa-microphone-alt fa-2x text-danger mb-3"></i>
+                    <h5 class="fw-bold">Debate Club</h5>
+                    <p>Sharpen your public speaking and critical thinking skills in regional competitions.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100 text-center">
+                    <i class="fas fa-paint-brush fa-2x text-info mb-3"></i>
+                    <h5 class="fw-bold">Creative Arts</h5>
+                    <p>Unleash your creativity through painting, drama, and campus exhibitions.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100 text-center">
+                    <i class="fas fa-code fa-2x text-dark mb-3"></i>
+                    <h5 class="fw-bold">Tech Club</h5>
+                    <p>Build projects, compete in hackathons, and network with industry leaders.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-outline-secondary">Join a Club</a>
+        </div>
+    </div>
+{% endblock %}

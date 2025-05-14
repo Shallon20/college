@@ -25,5 +25,9 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),
     path('office-of-dean-of-students/', views.officeOfDos, name='officeOfDos'),
     path('student-association/', views.studentAssociation, name='studentAssociation'),
+    path('jobs-internships-advertisements/', views.jobsInterniships, name='jobsInternships'),
+    path('sports-clubs/', views.sportsClubs, name='sportsClubs'),
+    path('accommodation/', views.accommodation, name='accommodation'),
+    path('dispensary/', views.dispensary, name='dispensary'),
     path('admin/', admin.site.urls),
 ]

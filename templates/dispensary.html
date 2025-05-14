@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>College Dispensary</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="text-center fw-bold mb-4">College Dispensary</h2>
+            </div>
+        </div>
+        <p class="text-center mb-5">
+            The Ushindi College Dispensary is dedicated to promoting student well-being through accessible, affordable,
+            and professional health care services right on campus.
+        </p>
+
+        <!-- Dispensary Info -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <img src="{% static 'img/dispensary.jpg' %}" alt="College Dispensary" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-bold">Our Services Include:</h4>
+                <ul class="list-group list-group-flush mt-3">
+                    <li class="list-group-item">General medical consultations</li>
+                    <li class="list-group-item">Free and subsidized medication</li>
+                    <li class="list-group-item">First aid & emergency response</li>
+                    <li class="list-group-item">Basic lab tests and diagnosis</li>
+                    <li class="list-group-item">Mental health & counseling support</li>
+                    <li class="list-group-item">Medical reports for exams & leave</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="bg-light p-4 rounded shadow-sm">
+            <h4 class="text-center fw-bold mb-3">We’re Open 24/7</h4>
+            <p class="text-center">The dispensary operates around the clock to handle medical needs at any hour
+                including nights, weekends, and emergencies.</p>
+            <p class="text-center">Located near the main gate, beside the Student Services Office.</p>
+            <div class="text-center">
+                <a href="tel:+254712345678" class="btn btn-outline-secondary mt-2">Call Health Desk</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

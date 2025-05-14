@@ -19,3 +19,19 @@ def officeOfDos(request):
 
 def studentAssociation(request):
     return render(request,'students-association.html')
+
+
+def jobsInterniships(request):
+    return render(request, 'jobs-internships.html')
+
+
+def sportsClubs(request):
+    return render(request, 'sports-clubs.html')
+
+
+def accommodation(request):
+    return render(request, 'accomodation.html')
+
+
+def dispensary(request):
+    return render(request, 'dispensary.html')
