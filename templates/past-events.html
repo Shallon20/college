@@ -1,0 +1,67 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>Past Events & News</title>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="underline-title-wrap">
+        <div class="underline-title">
+            <h2 class="text-center fw-bold mb-4">Past Events & News</h2>
+        </div>
+    </div>
+    <p class="text-center mb-5">Take a look back at previous highlights, achievements, and campus moments that shaped our journey.</p>
+
+    <!-- Past Events Section -->
+    <h4 class="fw-bold mb-3">Past Events</h4>
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="Event 1">
+                <div class="card-body">
+                    <h5 class="card-title">2024 Cultural Festival</h5>
+                    <p class="card-text">Students showcased their heritage through food, music, and dance. A celebration of unity and diversity!</p>
+                    <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
+                </div>
+                <div class="card-footer text-muted text-center small">
+                    <i class="fa fa-calendar-alt me-1"></i> 30 Nov 2024
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="Event 2">
+                <div class="card-body">
+                    <h5 class="card-title">Tech Expo 2024</h5>
+                    <p class="card-text">Innovators from Ushindi College presented groundbreaking apps and robotics projects.</p>
+                    <a href="{% url 'newsEventsDetail' slug='career-day-2020' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
+                </div>
+                <div class="card-footer text-muted text-center small">
+                    <i class="fa fa-calendar-alt me-1"></i> 15 Oct 2024
+                </div>
+            </div>
+        </div>
+        <!-- Add more cards -->
+    </div>
+
+    <!-- Past News Section -->
+    <h4 class="fw-bold mb-3">News Archive</h4>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="News">
+                <div class="card-body">
+                    <h5 class="card-title">New Science Block Opened</h5>
+                    <p class="card-text">The college unveiled its new modern science labs with advanced equipment and lecture halls.</p>
+                    <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
+                </div>
+                <div class="card-footer text-muted text-center small">
+                    <i class="fa fa-calendar-alt me-1"></i> 2 Sept 2024
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>Contact Us</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="fw-bold">Contact Ushindi College</h2>
+            </div>
+        </div>
+        <p>Have questions or need support? Reach out to us, we’re here to help.</p>
+
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-md-7 mb-4">
+                <form method="POST" class="bg-light p-4 rounded shadow-sm">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Your full name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="you@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Subject</label>
+                        <input type="text" class="form-control" placeholder="What’s this about?" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" rows="5" placeholder="Your message..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary px-4">Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-5">
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h5 class="fw-bold mb-3">Visit or Call Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2 text-grey"></i> Ushindi College, Machakos, Kenya</p>
+                    <p><i class="fas fa-phone-alt me-2 text-grey"></i> +254 712 345 678</p>
+                    <p><i class="fas fa-envelope me-2 text-grey"></i> info@ushindicollege.ac.ke</p>
+                    <p><i class="fas fa-globe me-2 text-grey"></i> www.ushindicollege.ac.ke</p>
+                    <hr>
+                    <h6 class="fw-bold">Office Hours</h6>
+                    <p>Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday: 9:00 AM – 1:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

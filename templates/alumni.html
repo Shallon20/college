@@ -1,0 +1,144 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>Alumni Association</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <!-- Title -->
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="fw-bold">Ushindi College Alumni Association</h2>
+            </div>
+        </div>
+        <p>Once Ushindi, always Ushindi. Stay connected, give back, and grow with your fellow graduates.</p>
+
+        <!-- Short Description -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10 text-center">
+                <p>
+                    The Ushindi College Alumni Association is a growing network of empowered graduates committed to
+                    lifelong connection, collaboration, and community uplift. Whether you graduated in 2005 or 2025 —
+                    you're part of the story.
+                </p>
+            </div>
+        </div>
+
+        <!-- Mission & CTA -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="{% static 'img/beds.jpg' %}" class="img-fluid rounded shadow-sm w-75" alt="Alumni Group">
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-bold">Our Mission</h4>
+                <p>To foster meaningful relationships between alumni and the institution, support career growth, and
+                    provide opportunities to give back through mentorship, scholarships, and events.</p>
+                <a href="{% url 'contact' %}" class="btn btn-outline-primary mt-3">Contact the Alumni Office</a>
+            </div>
+        </div>
+
+        <!-- Executive Alumni Board -->
+        <div class="my-5">
+            <h4 class="fw-bold mb-4 text-center">Executive Alumni Board</h4>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/vice.jpg' %}" class="img-fluid rounded mb-2" alt="President">
+                    <h6 class="fw-bold">Jane Mwikali</h6>
+                    <p class="text-muted small">President</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/dean.jpg' %}" class="img-fluid rounded mb-2" alt="Vice President">
+                    <h6 class="fw-bold">Samuel Kimani</h6>
+                    <p class="text-muted small">Vice President</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/vice.jpg' %}" class="img-fluid rounded mb-2" alt="Secretary">
+                    <h6 class="fw-bold">Mercy Odhiambo</h6>
+                    <p class="text-muted small">Secretary</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/dean.jpg' %}" class="img-fluid rounded mb-2" alt="Treasurer">
+                    <h6 class="fw-bold">David Otieno</h6>
+                    <p class="text-muted small">Treasurer</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alumni Benefits -->
+        <div class="bg-light p-4 rounded shadow-sm mb-5">
+            <h4 class="fw-bold mb-3 text-center">Why Stay Connected?</h4>
+            <div class="row text-center">
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-user-friends fa-2x text-black mb-2"></i>
+                    <h6 class="fw-bold">Networking</h6>
+                    <p>Connect with graduates across industries for growth and opportunity.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-chalkboard-teacher fa-2x text-black mb-2"></i>
+                    <h6 class="fw-bold">Mentorship</h6>
+                    <p>Guide current students and new graduates into successful careers.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-donate fa-2x text-black mb-2"></i>
+                    <h6 class="fw-bold">Giving Back</h6>
+                    <p>Support scholarships, events, and campus development programs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join CTA -->
+        <div class="text-center mb-5">
+            <h4 class="fw-bold mb-3">Ready to reconnect?</h4>
+            <p>Join the alumni mailing list and get updates on reunions, jobs, and success stories.</p>
+            <a href="#" class="btn btn-primary">Join the Alumni Network</a>
+        </div>
+
+        <!-- Alumni Contact Form -->
+        <div class="bg-white p-4 rounded shadow-sm mb-5">
+            <h4 class="fw-bold mb-4 text-center">Alumni Inquiries & Updates</h4>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Your name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Graduation Year</label>
+                        <input type="text" class="form-control" placeholder="e.g. 2020">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Course Studied</label>
+                        <input type="text" class="form-control" placeholder="e.g. Computer Science">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Your Message or Update</label>
+                    <textarea class="form-control" rows="4"
+                              placeholder="Tell us what you're doing or ask a question..."></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-4">Send</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Alumni Board Contact Info -->
+        <div class="bg-dark text-white p-4 rounded shadow-sm">
+            <h4 class="fw-bold mb-3">Alumni Office Contact</h4>
+            <p><i class="fas fa-map-marker-alt me-2 text-light"></i> Alumni Affairs Office, Ushindi College, Machakos
+            </p>
+            <p><i class="fas fa-phone me-2 text-light"></i> +254 799 123 456</p>
+            <p><i class="fas fa-envelope me-2 text-light"></i> alumni@ushindicollege.ac.ke</p>
+            <p><i class="fas fa-globe me-2 text-light"></i> www.ushindicollege.ac.ke/alumni</p>
+        </div>
+    </div>
+{% endblock %}
+

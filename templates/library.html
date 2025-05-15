@@ -1,0 +1,92 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>College Library</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <!-- Title & Intro -->
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="fw-bold">Ushindi College Library</h2>
+            </div>
+        </div>
+        <p>A center of knowledge, research, and discovery for students and staff.</p>
+        <!-- Section: Library Overview -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="{% static 'img/events.jpg' %}" class="img-fluid rounded shadow-sm"
+                     alt="Library Interior">
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-bold">About the Library</h4>
+                <p>The Ushindi College Library supports learning, teaching, and research with access to physical and
+                    digital resources. It is equipped with study spaces, internet access, and trained librarians ready
+                    to assist your academic journey.</p>
+                <p>Students can access books, journals, e-resources, and use quiet or group study areas.</p>
+            </div>
+        </div>
+
+        <!-- Section: Services Offered -->
+        <div class="bg-light p-4 rounded shadow-sm mb-5">
+            <h4 class="fw-bold mb-3 text-center">Library Services</h4>
+            <div class="row text-center">
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-book fa-2x text-black mb-2"></i>
+                    <h6 class="fw-bold">Borrowing & Lending</h6>
+                    <p>Access thousands of books and materials for study and research.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-wifi fa-2x text-black mb-2"></i>
+                    <h6 class="fw-bold">E-Library Access</h6>
+                    <p>Use computers and access digital journals and academic databases.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-users fa-2x text-black mb-2"></i>
+                    <h6 class="fw-bold">Study Spaces</h6>
+                    <p>Quiet reading rooms and group collaboration areas available.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Library Staff -->
+        <div class="my-5">
+            <h4 class="fw-bold text-center mb-4">Meet Our Library Team</h4>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/vice.jpg' %}" class="img-fluid rounded mb-2" alt="Director">
+                    <h6 class="fw-bold">Clara Nduku</h6>
+                    <p class="text-muted small">Director, Library Services</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/dean.jpg' %}" class="img-fluid rounded mb-2"
+                         alt="Assistant Librarian">
+                    <h6 class="fw-bold">Peter Otieno</h6>
+                    <p class="text-muted small">Assistant Librarian</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/vice.jpg' %}" class="img-fluid rounded mb-2"
+                         alt="Digital Access">
+                    <h6 class="fw-bold">Mary Wanjiru</h6>
+                    <p class="text-muted small">Digital Resources Officer</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'img/dean.jpg' %}" class="img-fluid rounded mb-2" alt="Support">
+                    <h6 class="fw-bold">James Maina</h6>
+                    <p class="text-muted small">Library Support Staff</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="bg-dark text-white p-4 rounded shadow-sm">
+            <h4 class="fw-bold mb-3">Library Contact Information</h4>
+            <p><i class="fas fa-map-marker-alt me-2 text-light"></i> Ushindi College Library, Main Campus, Machakos
+            </p>
+            <p><i class="fas fa-phone me-2 text-light"></i> +254 701 234 567</p>
+            <p><i class="fas fa-envelope me-2 text-light"></i> library@ushindicollege.ac.ke</p>
+            <p><i class="fas fa-clock me-2 text-light"></i> Mon–Fri: 7:30AM – 9:00PM | Sat: 9:00AM – 1:00PM</p>
+        </div>
+    </div>
+{% endblock %}

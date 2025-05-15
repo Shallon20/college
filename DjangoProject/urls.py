@@ -29,5 +29,16 @@ urlpatterns = [
     path('sports-clubs/', views.sportsClubs, name='sportsClubs'),
     path('accommodation/', views.accommodation, name='accommodation'),
     path('dispensary/', views.dispensary, name='dispensary'),
+    path('cafeteria/', views.cafeteria, name='cafeteria'),
+    path('upcoming-news-events/', views.upcomingNewsEvents, name='upcomingNewsEvents'),
+    path('past-news-events/', views.pastNewsEvents, name='pastNewsEvents'),
+    path('news-events/<slug:slug>/', views.NewsEventsDetail, name='newsEventsDetail'),
+path('enroll/', views.enroll, name='enroll'),
+path('contact/', views.contact, name='contact'),
+path('frequently-asked-questions/', views.faq, name='faq'),
+path('alumni-association/', views.alumni, name='alumni'),
+path('library/', views.library, name='library'),
+
+
     path('admin/', admin.site.urls),
 ]

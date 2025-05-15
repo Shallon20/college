@@ -30,8 +30,43 @@ def sportsClubs(request):
 
 
 def accommodation(request):
-    return render(request, 'accomodation.html')
+    return render(request, 'accommodation.html')
 
 
 def dispensary(request):
     return render(request, 'dispensary.html')
+
+
+def cafeteria(request):
+    return render(request, 'cafeteria.html')
+
+
+def upcomingNewsEvents(request):
+    return render(request, 'upcoming-events.html')
+
+
+def pastNewsEvents(request):
+    return render(request, 'past-events.html')
+
+
+def NewsEventsDetail(request, slug):
+    return render(request, 'event-detail.html', {'slug': slug})
+
+def enroll(request):
+    return render(request, 'enroll.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
+
+
+def faq(request):
+    return render(request, 'faq.html')
+
+
+def alumni(request):
+    return render(request, 'alumni.html')
+
+
+def library(request):
+    return render(request, 'library.html')

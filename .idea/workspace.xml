@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97da0a32-847c-472e-8430-940dd9dcccad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/accomodation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dispensary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/jobs-internships.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/sports-clubs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/alumni.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cafeteria.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/enroll.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/event-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/faq.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/library.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/past-events.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/upcoming-events.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accomodation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accommodation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,6 +137,9 @@
       <workItem from="1747039855265" duration="18290000" />
       <workItem from="1747128941912" duration="7346000" />
       <workItem from="1747214645327" duration="7327000" />
+      <workItem from="1747236378551" duration="997000" />
+      <workItem from="1747299902739" duration="5979000" />
+      <workItem from="1747308282230" duration="8996000" />
     </task>
     <servers />
   </component>
