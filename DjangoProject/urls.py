@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from . import settings
+from django.conf.urls.static import static
 from myapp import views
 
 urlpatterns = [
@@ -25,14 +26,14 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),
     path('office-of-dean-of-students/', views.officeOfDos, name='officeOfDos'),
     path('student-association/', views.studentAssociation, name='studentAssociation'),
-    path('jobs-internships-advertisements/', views.jobsInterniships, name='jobsInternships'),
+    path('jobs-internships-advertisements/', views.jobsInternships, name='jobsInternships'),
     path('sports-clubs/', views.sportsClubs, name='sportsClubs'),
     path('accommodation/', views.accommodation, name='accommodation'),
     path('dispensary/', views.dispensary, name='dispensary'),
     path('cafeteria/', views.cafeteria, name='cafeteria'),
     path('upcoming-news-events/', views.upcomingNewsEvents, name='upcomingNewsEvents'),
     path('past-news-events/', views.pastNewsEvents, name='pastNewsEvents'),
-    path('news-events/<slug:slug>/', views.NewsEventsDetail, name='newsEventsDetail'),
+    path('news-events-detail/<slug:slug>/', views.NewsEventsDetail, name='news_events_detail'),
 path('enroll/', views.enroll, name='enroll'),
 path('contact/', views.contact, name='contact'),
 path('frequently-asked-questions/', views.faq, name='faq'),
@@ -42,3 +43,5 @@ path('library/', views.library, name='library'),
 
     path('admin/', admin.site.urls),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

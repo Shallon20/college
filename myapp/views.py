@@ -1,8 +1,25 @@
 from django.shortcuts import render
+from django.utils import timezone
+
+from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial
+
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    slides = CarouselSlide.objects.all()
+    news_events = NewsEvents.objects.order_by('-date')[:4]
+    faculties = Faculty.objects.all()
+    gallery_images = GalleryImage.objects.all()[:9]
+    testimonials = Testimonial.objects.all()[:4]
+
+    context = {
+        'slides': slides,
+        'news_events': news_events,
+        'faculties': faculties,
+        'gallery': gallery_images,
+        'testimonials': testimonials,
+    }
+    return render(request, 'home.html', context)
 
 
 def about(request):
@@ -18,10 +35,10 @@ def officeOfDos(request):
 
 
 def studentAssociation(request):
-    return render(request,'students-association.html')
+    return render(request, 'students-association.html')
 
 
-def jobsInterniships(request):
+def jobsInternships(request):
     return render(request, 'jobs-internships.html')
 
 
@@ -51,6 +68,7 @@ def pastNewsEvents(request):
 
 def NewsEventsDetail(request, slug):
     return render(request, 'event-detail.html', {'slug': slug})
+
 
 def enroll(request):
     return render(request, 'enroll.html')
