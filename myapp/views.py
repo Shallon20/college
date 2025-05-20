@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.utils import timezone
 
-from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial
+from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
+    VisionMission, StaffMember, DeanProfile, DeanStaff
 
 
 # Create your views here.
@@ -23,15 +24,30 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    about_info = AboutInfo.objects.all()
+    why_choose_us = WhyChooseUs.objects.all()
+    stats = Stats.objects.all()
+    vision_mission = VisionMission.objects.all()
+    staffs = StaffMember.objects.all()
+    context = {
+        'about_info': about_info,
+        'why_choose_us': why_choose_us,
+        'stats': stats,
+        'vision_mission': vision_mission,
+        'staffs': staffs,
+    }
+    return render(request, 'about.html', context)
 
 
 def courses(request):
-    return render(request, 'courses.html')
+    faculties = Faculty.objects.prefetch_related('courses').all()
+    return render(request, 'courses.html', {'faculties': faculties})
 
 
 def officeOfDos(request):
-    return render(request, 'dos.html')
+    dean = DeanProfile.objects.first()
+    staffs = DeanStaff.objects.all()
+    return render(request, 'dos.html', {'dean': dean, 'staffs': staffs})
 
 
 def studentAssociation(request):
