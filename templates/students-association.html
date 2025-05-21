@@ -10,67 +10,18 @@
             <h2 class="underline-title">Student Leadership</h2>
         </div>
         <div class="row text-center">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolore non quidem suscipit velit. Culpa impedit iure libero velit voluptatibus. Autem culpa eius, ex minima provident rem repudiandae temporibus totam?</p>
-            <div class="col-md-3">
-                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Vincent Morara</h6>
-                <p class="text-muted">Chairperson</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Mary Benard</h6>
-                <p class="text-muted">Vice Chairperson</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Samuel Wambi</h6>
-                <p class="text-muted">Secretary General</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Victoria Mumbi</h6>
-                <p class="text-muted">ICT</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Vincent Morara</h6>
-                <p class="text-muted">Chairperson</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Mary Benard</h6>
-                <p class="text-muted">Vice Chairperson</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Samuel Wambi</h6>
-                <p class="text-muted">Secretary General</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Victoria Mumbi</h6>
-                <p class="text-muted">ICT</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Vincent Morara</h6>
-                <p class="text-muted">Chairperson</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Mary Benard</h6>
-                <p class="text-muted">Vice Chairperson</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/dean.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Samuel Wambi</h6>
-                <p class="text-muted">Secretary General</p>
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'img/vice.jpg' %}" class="img-fluid mb-2 w-50" alt="">
-                <h6>Victoria Mumbi</h6>
-                <p class="text-muted">ICT</p>
-            </div>
+            <p>At Ushindi College, we believe in nurturing leadership from within. Our student leadership body
+                represents the voice of the students, promotes unity, and leads initiatives that enhance campus life.
+                Through active participation, student leaders gain valuable experience in governance, communication, and
+                service, preparing them to lead with integrity both on campus and beyond.</p>
+            {% for student_leader in student_leadership %}
+                <div class="col-md-3">
+                    <img src="{{ student_leader.image.url }}" class="img-fluid mb-2 w-50"
+                         alt="{{ student_leader.role }}">
+                    <h6>{{ student_leader.name }}</h6>
+                    <p class="text-muted">{{ student_leader.role }}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
 

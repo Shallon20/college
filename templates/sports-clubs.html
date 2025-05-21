@@ -16,81 +16,79 @@
 
         <!-- Sports Section -->
         <div class="row g-4 mb-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'img/football.jpg' %}" alt="">
+            {% for sport in sports %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div id="carouselSport{{ sport.id }}" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded">
+                                {% for image in sport.images.all %}
+                                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                        <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ sport.name }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselSport{{ sport.id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselSport{{ sport.id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#footballCarousel"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#footballCarousel"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
                     <div class="card-body">
-                        <h5 class="fw-bold">Football Club</h5>
-                        <p>Join our competitive football team and participate in national-level tournaments.</p>
+                        <h5 class="fw-bold mt-2">{{ sport.name }}</h5>
+                        <h6 class="fw-bold">Captain Name: <small class="fw-normal">{{ sport.captain_name }}</small></h6>
+                        <h6 class="fw-bold">Captain Contact: <small class="fw-normal">{{ sport.captain_contact }}</small></h6>
+                        <p>{{ sport.description }}</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'img/basketball.jpg' %}" alt="">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Basketball</h5>
-                        <p>Train and compete with fellow students on our modern courts and leagues.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'img/gymfitness.jpg' %}" alt="">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Fitness & Gym</h5>
-                        <p>Maintain a healthy lifestyle in our well-equipped student fitness center.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'img/basketball.jpg' %}" alt="">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Basketball</h5>
-                        <p>Train and compete with fellow students on our modern courts and leagues.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'img/gymfitness.jpg' %}" alt="">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Fitness & Gym</h5>
-                        <p>Maintain a healthy lifestyle in our well-equipped student fitness center.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+
         </div>
 
         <!-- Clubs Section -->
         <h3 class="text-center fw-bold mb-4">Student Clubs</h3>
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="p-4 border rounded shadow-sm h-100 text-center">
-                    <i class="fas fa-microphone-alt fa-2x text-danger mb-3"></i>
-                    <h5 class="fw-bold">Debate Club</h5>
-                    <p>Sharpen your public speaking and critical thinking skills in regional competitions.</p>
+            {% for club in clubs %}
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div id="clubCarousel{{ forloop.counter }}" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded">
+                                {% for img in club.images.all %}
+                                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                        <img src="{{ img.image.url }}" class="d-block w-100" alt="Club Image">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#clubCarousel{{ forloop.counter }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                    data-bs-target="#clubCarousel{{ forloop.counter }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">{{ club.name }}</h5>
+                            <h6 class="fw-bold">Leader Name: <small class="fw-normal">{{ club.leader_name }}</small></h6>
+                            <h6 class="fw-bold">Leader Contact: <small class="fw-normal">{{ club.leader_contact }}</small></h6>
+                            <p>{{ club.description }}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 border rounded shadow-sm h-100 text-center">
-                    <i class="fas fa-paint-brush fa-2x text-info mb-3"></i>
-                    <h5 class="fw-bold">Creative Arts</h5>
-                    <p>Unleash your creativity through painting, drama, and campus exhibitions.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 border rounded shadow-sm h-100 text-center">
-                    <i class="fas fa-code fa-2x text-dark mb-3"></i>
-                    <h5 class="fw-bold">Tech Club</h5>
-                    <p>Build projects, compete in hackathons, and network with industry leaders.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-5">
-            <a href="#" class="btn btn-outline-secondary">Join a Club</a>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

@@ -132,3 +132,72 @@ class DeanStaff(models.Model):
 
     def __str__(self):
         return self.name
+
+class StudentLeadership(models.Model):
+    image = models.ImageField(upload_to='student_leadership/')
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+
+class JobsInternshipsAds(models.Model):
+    title = models.CharField(max_length=100)
+    deadline = models.DateField(blank=False)
+    description = models.TextField(max_length=300)
+    link = models.URLField(blank=False)
+
+class Sport(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    captain_name = models.CharField(max_length=100, blank=True)
+    captain_contact = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class SportImage(models.Model):
+    sport = models.ForeignKey(Sport, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='sports/')
+
+    def __str__(self):
+        return f"Image for {self.sport.name}"
+
+class Club(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    leader_name = models.CharField(max_length=100)
+    leader_contact = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class ClubImage(models.Model):
+    club = models.ForeignKey(Club, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='club_images/')
+
+    def __str__(self):
+        return f"Image for {self.club.name} "
+class Hostel(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    features = models.TextField(help_text="Enter each feature separated by a semicolon (;)")
+    price = models.DecimalField(max_digits=8, decimal_places=2, help_text="Monthly price in KES")
+
+    def __str__(self):
+        return self.name
+
+class HostelImage(models.Model):
+    hostel = models.ForeignKey(Hostel, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='hostel_images/')
+
+    def __str__(self):
+        return f"Image for {self.hostel.name}"
+
+class HostelApplication(models.Model):
+    full_name = models.CharField(max_length=100)
+    student_id = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    preferred_type = models.CharField(max_length=50)
+    notes = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.full_name} - {self.student_id}"

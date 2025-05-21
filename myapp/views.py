@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.utils import timezone
 
+from myapp.forms import HostelApplicationForm
 from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
-    VisionMission, StaffMember, DeanProfile, DeanStaff
+    VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel
 
 
 # Create your views here.
@@ -51,19 +52,31 @@ def officeOfDos(request):
 
 
 def studentAssociation(request):
-    return render(request, 'students-association.html')
+    student_leadership = StudentLeadership.objects.all()
+    return render(request, 'students-association.html', {'student_leadership': student_leadership})
 
 
 def jobsInternships(request):
-    return render(request, 'jobs-internships.html')
+    jobs_internships_ads = JobsInternshipsAds.objects.all()
+    return render(request, 'jobs-internships.html', {'jobs_internships_ads': jobs_internships_ads})
 
 
 def sportsClubs(request):
-    return render(request, 'sports-clubs.html')
+    sports = Sport.objects.prefetch_related('images').all()
+    clubs = Club.objects.prefetch_related('images').all()
+    return render(request, 'sports-clubs.html', {'sports': sports, 'clubs': clubs})
 
 
 def accommodation(request):
-    return render(request, 'accommodation.html')
+    hostels = Hostel.objects.prefetch_related('images').all()
+    if request.method == 'POST':
+        form = HostelApplicationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = HostelApplicationForm()
+    else:
+        form = HostelApplicationForm()
+    return render(request, 'accommodation.html', {'hostels': hostels, 'form': form})
 
 
 def dispensary(request):
