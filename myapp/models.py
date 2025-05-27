@@ -201,3 +201,50 @@ class HostelApplication(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.student_id}"
+
+class DispensaryService(models.Model):
+    short_description = models.CharField(max_length=300)
+    service_list = models.CharField(blank=True)
+    image = models.ImageField(upload_to='dispensary_service/')
+    def __str__(self):
+        return self.short_description
+
+class DispensaryContact(models.Model):
+    is_active = models.BooleanField(default=True)
+    contact_note = models.TextField(help_text="Short note e.g., 'We’re Open 24/7'")
+    location = models.CharField(max_length=255)
+    phone = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Contact Info ({self.phone})"
+
+class DispensaryGallery(models.Model):
+    image = models.ImageField(upload_to='dispensary_service/')
+    caption = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.caption or f"Dispensary Image {self.id}"
+
+class CafeteriaService(models.Model):
+    description = models.TextField(blank=True)
+    services  = models.TextField(help_text="Separate features with a semicolon (;)")
+
+    def __str__(self):
+        return self.description
+
+
+class CafeteriaImage(models.Model):
+    cafeteria_service = models.ForeignKey(CafeteriaService, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='cafeteria_images/')
+
+    def __str__(self):
+        return f"Image for {self.cafeteria_service.title}"
+
+
+class CafeteriaMenu(models.Model):
+    day = models.CharField(max_length=20)
+    meal = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f"{self.day} - {self.meal}"

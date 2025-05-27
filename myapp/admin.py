@@ -2,7 +2,8 @@ from django.contrib import admin
 
 from myapp.models import CarouselSlide, NewsEvents, GalleryImage, Testimonial, Faculty, AboutInfo, StaffMember, \
     VisionMission, Stats, WhyChooseUs, Course, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, \
-    Club, SportImage, ClubImage, HostelApplication, Hostel, HostelImage
+    Club, SportImage, ClubImage, HostelApplication, Hostel, HostelImage, DispensaryService, DispensaryContact, \
+    DispensaryGallery
 
 
 # Register your models here.
@@ -63,6 +64,12 @@ class HostelApplicationAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'student_id', 'preferred_type', )
 class HostelImageAdmin(admin.ModelAdmin):
     list_display = ('hostel',)
+class DispensaryServiceAdmin(admin.ModelAdmin):
+    list_display = ('short_description',)
+class DispensaryContactAdmin(admin.ModelAdmin):
+    list_display = ('phone', 'location', 'is_active',)
+class DispensaryGalleryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'caption']
 
 admin.site.register(CarouselSlide, CarouselSlideAdmin)
 admin.site.register(NewsEvents, NewsEventsAdmin)
@@ -86,3 +93,6 @@ admin.site.register(ClubImage, ClubImageAdmin)
 admin.site.register(Hostel, HostelAdmin)
 admin.site.register(HostelApplication, HostelApplicationAdmin)
 admin.site.register(HostelImage, HostelImageAdmin)
+admin.site.register(DispensaryService, DispensaryServiceAdmin)
+admin.site.register(DispensaryContact, DispensaryContactAdmin)
+admin.site.register(DispensaryGallery, DispensaryGalleryAdmin)

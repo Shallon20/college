@@ -3,7 +3,8 @@ from django.utils import timezone
 
 from myapp.forms import HostelApplicationForm
 from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
-    VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel
+    VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel, \
+    DispensaryService, DispensaryContact, DispensaryGallery
 
 
 # Create your views here.
@@ -80,8 +81,10 @@ def accommodation(request):
 
 
 def dispensary(request):
-    return render(request, 'dispensary.html')
-
+    services = DispensaryService.objects.all()
+    contacts = DispensaryContact.objects.filter(is_active=True).first()
+    images = DispensaryGallery.objects.all()
+    return render(request, 'dispensary.html', {'services': services, 'contacts': contacts, 'images': images})
 
 def cafeteria(request):
     return render(request, 'cafeteria.html')
