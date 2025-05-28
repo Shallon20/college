@@ -1,59 +1,67 @@
 {% extends 'master.html' %}
+{% load custom_filters %}
 {% load static %}
 {% block title %}
     <title>College Cafeteria</title>
 {% endblock %}
 
 {% block content %}
-<div class="container my-5">
-    <div class="underline-title-wrap">
-        <div class="underline-title">
-            <h2 class="text-center fw-bold mb-4">Ushindi College Cafeteria</h2>
+    <div class="container my-5">
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="text-center fw-bold mb-4">Ushindi College Cafeteria</h2>
+            </div>
         </div>
-    </div>
-    <p class="text-center mb-5">
-        Our cafeteria provides nutritious, affordable meals in a clean and friendly environment — designed to keep you energized throughout the day.
-    </p>
+    
+        <p>{{ cafeteria_services.short_description }}</p>
 
-    <!-- Cafeteria Image + Info -->
-    <div class="row mb-5 align-items-center">
-        <div class="col-md-6">
-            <img src="{% static 'img/cafeteria.jpg' %}" class="img-fluid rounded w-75" alt="Cafeteria">
-        </div>
-        <div class="col-md-6">
+        <!-- Cafeteria Image + Info -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <div id="carousel{{ forloop.counter }}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded">
+                        {% for image in cafeteria_images.all %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image.image.url }}" class="d-block w-100" alt="Cafeteria Image">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carousel{{ forloop.counter }}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#carousel{{ forloop.counter }}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-5 mt-4">
             <h4 class="fw-bold">What We Offer</h4>
-            <ul class="list-group list-group-flush mt-3">
-                <li class="list-group-item">Affordable daily meals (breakfast, lunch, dinner)</li>
-                <li class="list-group-item">Balanced diet with vegetarian options</li>
-                <li class="list-group-item">Snacks, fresh juice, and coffee corner</li>
-                <li class="list-group-item">Hygienic environment with routine inspections</li>
-                <li class="list-group-item">Open 6:30 AM – 10:00 PM (Monday to Sunday)</li>
-            </ul>
+                <ul class="list-group list-group-flush">
+                    {% for service in cafeteria_services.services|split:";" %}
+                        <li class="list-group-item">{{ service }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <!-- Optional Weekly Menu -->
-    <div class="bg-light p-4 rounded shadow-sm">
-        <h4 class="text-center fw-bold mb-3">Sample Weekly Menu</h4>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <h6 class="fw-bold">Monday</h6>
-                <p>Ugali + Sukuma + Beans</p>
+        <!-- Optional Weekly Menu -->
+        <div class="bg-light p-4 rounded shadow-sm">
+            <h4 class="text-center fw-bold mb-3">Sample Weekly Menu</h4>
+            <div class="row text-center">
+                {% for menu in cafeteria_menu %}
+                    <div class="col-md-4">
+                        <h6 class="fw-bold">{{ menu.day }}</h6>
+                        <p>{{ menu.meal}}</p>
+                    </div>
+                {% endfor %}
+
             </div>
-            <div class="col-md-4">
-                <h6 class="fw-bold">Wednesday</h6>
-                <p>Rice + Beef + Veg</p>
+            <div class="text-center mt-3">
+                <a href="{{ cafeteria_menu.file.url }}" download class="btn btn-secondary">
+                Download Full Menu </a>
             </div>
-            <div class="col-md-4">
-                <h6 class="fw-bold">Friday</h6>
-                <p>Chapati + Ndengu + Salad</p>
-            </div>
-        </div>
-        <div class="text-center mt-3">
-            <a href="" download class="btn btn-secondary">
-                Download Full Menu
-            </a>
         </div>
     </div>
-</div>
 {% endblock %}

@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 
-from myapp.forms import HostelApplicationForm
+from myapp.forms import HostelApplicationForm, EnrollmentForm
 from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
     VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel, \
-    DispensaryService, DispensaryContact, DispensaryGallery
+    DispensaryService, DispensaryContact, DispensaryGallery, CafeteriaImage, CafeteriaService, CafeteriaMenu, \
+    CafeteriaMenuPDF
 
 
 # Create your views here.
@@ -67,7 +68,6 @@ def sportsClubs(request):
     clubs = Club.objects.prefetch_related('images').all()
     return render(request, 'sports-clubs.html', {'sports': sports, 'clubs': clubs})
 
-
 def accommodation(request):
     hostels = Hostel.objects.prefetch_related('images').all()
     if request.method == 'POST':
@@ -79,7 +79,6 @@ def accommodation(request):
         form = HostelApplicationForm()
     return render(request, 'accommodation.html', {'hostels': hostels, 'form': form})
 
-
 def dispensary(request):
     services = DispensaryService.objects.all()
     contacts = DispensaryContact.objects.filter(is_active=True).first()
@@ -87,8 +86,18 @@ def dispensary(request):
     return render(request, 'dispensary.html', {'services': services, 'contacts': contacts, 'images': images})
 
 def cafeteria(request):
-    return render(request, 'cafeteria.html')
+    cafeteria_images = CafeteriaImage.objects.all()
+    cafeteria_services = CafeteriaService.objects.first()
+    cafeteria_menu = CafeteriaMenu.objects.all()
+    pdf = CafeteriaMenuPDF.objects.last()
 
+    context = {
+        'cafeteria_images': cafeteria_images,
+        'cafeteria_services': cafeteria_services,
+        'cafeteria_menu': cafeteria_menu,
+        'pdf': pdf,
+    }
+    return render(request, 'cafeteria.html', context)
 
 def upcomingNewsEvents(request):
     return render(request, 'upcoming-events.html')
@@ -103,7 +112,13 @@ def NewsEventsDetail(request, slug):
 
 
 def enroll(request):
-    return render(request, 'enroll.html')
+    if request.method == 'POST':
+        form = EnrollmentForm(request.POST)
+        if form.is_valid:
+            return redirect('home')
+    else:
+        form = EnrollmentForm()
+    return render(request, 'enroll.html', {'form': form})
 
 
 def contact(request):

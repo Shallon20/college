@@ -3,7 +3,7 @@ from django.contrib import admin
 from myapp.models import CarouselSlide, NewsEvents, GalleryImage, Testimonial, Faculty, AboutInfo, StaffMember, \
     VisionMission, Stats, WhyChooseUs, Course, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, \
     Club, SportImage, ClubImage, HostelApplication, Hostel, HostelImage, DispensaryService, DispensaryContact, \
-    DispensaryGallery
+    DispensaryGallery, CafeteriaService, CafeteriaMenu, CafeteriaImage, CafeteriaMenuPDF, Enrollment
 
 
 # Register your models here.
@@ -70,6 +70,16 @@ class DispensaryContactAdmin(admin.ModelAdmin):
     list_display = ('phone', 'location', 'is_active',)
 class DispensaryGalleryAdmin(admin.ModelAdmin):
     list_display = ['id', 'caption']
+class CafeteriaServiceAdmin(admin.ModelAdmin):
+    list_display = ('short_description', 'services',)
+class CafeteriaMenuAdmin(admin.ModelAdmin):
+    list_display = ('day', 'meal',)
+class CafeteriaImageAdmin(admin.ModelAdmin):
+    list_display = ('caption',)
+class CafeteriaMenuPDFAdmin(admin.ModelAdmin):
+    list_display = ('uploaded_at',)
+class EnrollmentAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'email', 'course')
 
 admin.site.register(CarouselSlide, CarouselSlideAdmin)
 admin.site.register(NewsEvents, NewsEventsAdmin)
@@ -96,3 +106,8 @@ admin.site.register(HostelImage, HostelImageAdmin)
 admin.site.register(DispensaryService, DispensaryServiceAdmin)
 admin.site.register(DispensaryContact, DispensaryContactAdmin)
 admin.site.register(DispensaryGallery, DispensaryGalleryAdmin)
+admin.site.register(CafeteriaService, CafeteriaServiceAdmin)
+admin.site.register(CafeteriaImage, CafeteriaImageAdmin)
+admin.site.register(CafeteriaMenu, CafeteriaMenuAdmin)
+admin.site.register(CafeteriaMenuPDF, CafeteriaMenuPDFAdmin)
+admin.site.register(Enrollment, EnrollmentAdmin)

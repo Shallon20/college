@@ -227,20 +227,18 @@ class DispensaryGallery(models.Model):
         return self.caption or f"Dispensary Image {self.id}"
 
 class CafeteriaService(models.Model):
-    description = models.TextField(blank=True)
+    short_description = models.TextField(max_length=500, blank=True)
     services  = models.TextField(help_text="Separate features with a semicolon (;)")
 
     def __str__(self):
-        return self.description
-
+        return self.short_description
 
 class CafeteriaImage(models.Model):
-    cafeteria_service = models.ForeignKey(CafeteriaService, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='cafeteria_images/')
+    image = models.ImageField(upload_to='cafeteria/')
+    caption = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
-        return f"Image for {self.cafeteria_service.title}"
-
+        return self.caption or "Cafeteria Image"
 
 class CafeteriaMenu(models.Model):
     day = models.CharField(max_length=20)
@@ -248,3 +246,20 @@ class CafeteriaMenu(models.Model):
 
     def __str__(self):
         return f"{self.day} - {self.meal}"
+
+class CafeteriaMenuPDF(models.Model):
+    file = models.FileField(upload_to='cafeteria_menus/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Menu PDF uploaded on {self.uploaded_at.date()}"
+
+class Enrollment(models.Model):
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=50)
+    phone = models.CharField(max_length=15)
+    course = models.CharField(max_length=100)
+    reason = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.full_name} - {self.course}"
