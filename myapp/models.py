@@ -17,6 +17,7 @@ class NewsEvents(models.Model):
     image = models.ImageField(upload_to="news/")
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
+    is_new = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -263,3 +264,12 @@ class Enrollment(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.course}"
+class ContactUs(models.Model):
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=50)
+    subject = models.CharField(max_length=100)
+    message = models.TextField(blank=False)
+
+class ContactInfo(models.Model):
+    contact_detail = models.CharField(max_length=100)
+    icon = models.CharField(blank=True)

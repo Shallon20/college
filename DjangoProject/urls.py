@@ -34,12 +34,11 @@ urlpatterns = [
     path('upcoming-news-events/', views.upcomingNewsEvents, name='upcomingNewsEvents'),
     path('past-news-events/', views.pastNewsEvents, name='pastNewsEvents'),
     path('news-events-detail/<slug:slug>/', views.NewsEventsDetail, name='news_events_detail'),
-path('enroll/', views.enroll, name='enroll'),
-path('contact/', views.contact, name='contact'),
-path('frequently-asked-questions/', views.faq, name='faq'),
-path('alumni-association/', views.alumni, name='alumni'),
-path('library/', views.library, name='library'),
-
+    path('enroll/', views.enroll, name='enroll'),
+    path('contact/', views.contact, name='contact'),
+    path('frequently-asked-questions/', views.faq, name='faq'),
+    path('alumni-association/', views.alumni, name='alumni'),
+    path('library/', views.library, name='library'),
 
     path('admin/', admin.site.urls),
 ]

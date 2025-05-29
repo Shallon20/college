@@ -15,107 +15,24 @@
             events at Ushindi College.</p>
 
         <!-- News Section -->
-        <h4 class="fw-bold mb-3">Latest News</h4>
+        <h4 class="fw-bold mb-3">Latest News & Events</h4>
         <div class="row g-4 mb-5">
+            {% for event in news_events %}
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
-                    <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="News 1">
+                    <img src="{{event.image.url}}" class="card-img-top" alt="{{ event.title}}">
                     <div class="card-body">
-                        <h5 class="card-title">Valdis Dombrovskis Visits Ushindi</h5>
-                        <p class="card-text">EU commissioner delivers lecture on economic growth and global
-                            opportunities.</p>
-                        <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.description|truncatewords:20 }}</p>
+                        <a href="{% url 'news_events_detail' event.slug %}" class="btn btn-sm btn-outline-secondary">Read More</a>
                     </div>
                     <div class="card-footer text-muted small text-center">
-                        <i class="fa fa-calendar-alt me-1"></i> 9 May 2025
+                        <i class="fa fa-calendar-alt me-1"></i> {{ event.date }}
                     </div>
                     
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="News 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Valdis Dombrovskis Visits Ushindi</h5>
-                        <p class="card-text">EU commissioner delivers lecture on economic growth and global
-                            opportunities.</p>
-                        <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
-                    </div>
-                    <div class="card-footer text-muted small text-center">
-                        <i class="fa fa-calendar-alt me-1"></i> 9 May 2025
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="News 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Valdis Dombrovskis Visits Ushindi</h5>
-                        <p class="card-text">EU commissioner delivers lecture on economic growth and global
-                            opportunities.</p>
-                        <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
-                    </div>
-                    <div class="card-footer text-muted small text-center">
-                        <i class="fa fa-calendar-alt me-1"></i> 9 May 2025
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="News 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Valdis Dombrovskis Visits Ushindi</h5>
-                        <p class="card-text">EU commissioner delivers lecture on economic growth and global
-                            opportunities.</p>
-                        <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
-                    </div>
-                    <div class="card-footer text-muted small text-center">
-                        <i class="fa fa-calendar-alt me-1"></i> 9 May 2025
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{% static 'img/events.jpg' %}" class="card-img-top" alt="News 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Valdis Dombrovskis Visits Ushindi</h5>
-                        <p class="card-text">EU commissioner delivers lecture on economic growth and global
-                            opportunities.</p>
-                        <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
-                    </div>
-                    <div class="card-footer text-muted small text-center">
-                        <i class="fa fa-calendar-alt me-1"></i> 9 May 2025
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
-
-        <!-- Events Section -->
-        <h4 class="fw-bold mb-3">Upcoming Events</h4>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="p-4 border rounded shadow-sm h-100">
-                    <h5 class="fw-bold">Career Day 2025</h5>
-                    <p><strong>Date:</strong> 22 May 2025</p>
-                    <p>Interact with top employers and explore career opportunities across various industries.</p>
-                    <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-4 border rounded shadow-sm h-100">
-                    <h5 class="fw-bold">Cultural Festival</h5>
-                    <p><strong>Date:</strong> 31 May 2025</p>
-                    <p>A vibrant celebration of student talent, diversity, and heritage. Food, music, and dance
-                        await!</p>
-                    <a href="{% url 'newsEventsDetail' slug='career-day-2025' %}" class="btn btn-sm btn-outline-secondary">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-5">
-            <a href="{% url 'pastNewsEvents' %}" class="btn btn-outline-secondary px-4 py-2">
-                View Past News & Events
-            </a>
-        </div>
-
     </div>
 {% endblock %}

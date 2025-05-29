@@ -34,3 +34,12 @@ class EnrollmentForm(forms.Form):
         }),
         label="Why do you want to join Ushindi College?"
     )
+
+class ContactUsForm(forms.Form):
+    full_name = forms.CharField(max_length=100, label="Full Name")
+    email = forms.EmailField(label="Email Address")
+    subject = forms.CharField(max_length=100, label="Subject")
+    message = forms.CharField(widget=forms.Textarea(attrs={
+        'rows': 5,
+        'placeholder': 'Your message...'
+    }))

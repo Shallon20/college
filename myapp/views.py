@@ -1,17 +1,15 @@
-from django.shortcuts import render, redirect
-from django.utils import timezone
-
-from myapp.forms import HostelApplicationForm, EnrollmentForm
+from django.shortcuts import render, redirect, get_object_or_404
+from myapp.forms import HostelApplicationForm, EnrollmentForm, ContactUsForm
 from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
     VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel, \
     DispensaryService, DispensaryContact, DispensaryGallery, CafeteriaImage, CafeteriaService, CafeteriaMenu, \
-    CafeteriaMenuPDF
+    CafeteriaMenuPDF, ContactInfo
 
 
 # Create your views here.
 def home(request):
     slides = CarouselSlide.objects.all()
-    news_events = NewsEvents.objects.order_by('-date')[:4]
+    news_events = NewsEvents.objects.filter(is_new=True).order_by('-date')[:4]
     faculties = Faculty.objects.all()
     gallery_images = GalleryImage.objects.all()[:9]
     testimonials = Testimonial.objects.all()[:4]
@@ -100,15 +98,18 @@ def cafeteria(request):
     return render(request, 'cafeteria.html', context)
 
 def upcomingNewsEvents(request):
-    return render(request, 'upcoming-events.html')
+    news_events = NewsEvents.objects.filter(is_new=True).order_by('-date')
+    return render(request, 'upcoming-events.html', {'news_events': news_events})
 
 
 def pastNewsEvents(request):
-    return render(request, 'past-events.html')
+    news_events = NewsEvents.objects.filter(is_new=False).order_by('-date')
+    return render(request, 'past-events.html', {'news_events': news_events})
 
 
 def NewsEventsDetail(request, slug):
-    return render(request, 'event-detail.html', {'slug': slug})
+    news_events = get_object_or_404(NewsEvents, slug=slug)
+    return render(request, 'event-detail.html', {'slug': slug, 'news_events': news_events})
 
 
 def enroll(request):
@@ -122,7 +123,14 @@ def enroll(request):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    contact_info = ContactInfo.objects.all()
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid:
+            return redirect('home')
+    else:
+        form = ContactUsForm()
+    return render(request, 'contact.html', {'form': form, 'contact_info': contact_info})
 
 
 def faq(request):

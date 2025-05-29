@@ -3,7 +3,8 @@ from django.contrib import admin
 from myapp.models import CarouselSlide, NewsEvents, GalleryImage, Testimonial, Faculty, AboutInfo, StaffMember, \
     VisionMission, Stats, WhyChooseUs, Course, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, \
     Club, SportImage, ClubImage, HostelApplication, Hostel, HostelImage, DispensaryService, DispensaryContact, \
-    DispensaryGallery, CafeteriaService, CafeteriaMenu, CafeteriaImage, CafeteriaMenuPDF, Enrollment
+    DispensaryGallery, CafeteriaService, CafeteriaMenu, CafeteriaImage, CafeteriaMenuPDF, Enrollment, ContactUs, \
+    ContactInfo
 
 
 # Register your models here.
@@ -80,6 +81,10 @@ class CafeteriaMenuPDFAdmin(admin.ModelAdmin):
     list_display = ('uploaded_at',)
 class EnrollmentAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'course')
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'email', 'subject',)
+class ContactInfoAdmin(admin.ModelAdmin):
+    list_display = ('contact_detail', 'icon',)
 
 admin.site.register(CarouselSlide, CarouselSlideAdmin)
 admin.site.register(NewsEvents, NewsEventsAdmin)
@@ -111,3 +116,5 @@ admin.site.register(CafeteriaImage, CafeteriaImageAdmin)
 admin.site.register(CafeteriaMenu, CafeteriaMenuAdmin)
 admin.site.register(CafeteriaMenuPDF, CafeteriaMenuPDFAdmin)
 admin.site.register(Enrollment, EnrollmentAdmin)
+admin.site.register(ContactUs, ContactUsAdmin)
+admin.site.register(ContactInfo, ContactInfoAdmin)

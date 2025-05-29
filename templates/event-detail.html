@@ -1,26 +1,25 @@
 {% extends 'master.html' %}
 {% load static %}
-{% block title %}<title>News & Events Detail</title>{% endblock %}
+{% block title %}<title>{{ news_events.title }}</title>{% endblock %}
 {% block content %}
 <div class="container my-5">
     <div class="underline-title-wrap">
         <div class="underline-title">
-            <h2 class="fw-bold text-center mb-4">{{ slug|title|cut:"-" }}</h2>
+            <h2 class="fw-bold text-center mb-4">{{ news_events.title }}</h2>
         </div>
     </div>
-    <p class="text-muted text-center">Posted on: 22 May 2025</p>
+    <p class="text-muted text-center">{{ news_events.date }}</p>
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <img src="{% static 'img/events.jpg' %}" class="img-fluid rounded mb-4" alt="Event Detail">
+            <img src="{{news_events.image.url }}" class="img-fluid rounded mb-4" alt="{{ news_events.title}}">
             <p>
-                This is a placeholder for detailed event content about "{{ slug }}".
-                <ul>
-                    <li>Full schedule</li>
-                    <li>Venue and speakers</li>
-                    <li>Photos or videos</li>
-                    <li>Feedback or recap</li>
-                </ul>
-            </p>
+                {{ news_events.description}}</p>
+                {% if news_events.content %}
+                <div class="mt-3">
+                    {{ news_events.content|linebreaks }}
+                </div>
+            {% endif %}
+            
             <div class="text-center mt-4">
                 <a href="{% url 'pastNewsEvents' %}" class="btn btn-outline-secondary">← Back to All Events</a>
             </div>
