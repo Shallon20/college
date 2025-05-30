@@ -136,10 +136,5 @@ def contact(request):
 def faq(request):
     return render(request, 'faq.html')
 
-
-def alumni(request):
-    return render(request, 'alumni.html')
-
-
 def library(request):
     return render(request, 'library.html')
