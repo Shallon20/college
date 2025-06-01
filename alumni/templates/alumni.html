@@ -13,7 +13,7 @@
                 <h2 class="fw-bold">Ushindi College Alumni Association</h2>
             </div>
         </div>
-        
+
         <!-- Short Description -->
         <div class="row justify-content-center mb-5">
             <div class="col-md-10 text-center">
@@ -30,17 +30,11 @@
         <!-- Mission & Call To Action -->
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
-                <img src="{{ alumni_intro.image.url }}" alt="Alumni">
-                <img src="{% static 'img/beds.jpg' %}" class="img-fluid rounded shadow-sm w-100" alt="Alumni Group">
+                <img src="{{ alumni_intro.image.url }}" class="img-fluid rounded shadow-sm w-100" alt="Alumni">
             </div>
             <div class="col-md-6">
-                <h4 class="fw-bold">Our Mission</h4>
-                <p>To foster meaningful relationships between alumni and the institution, support career growth, and
-                    provide opportunities to give back through mentorship, scholarships, and events.</p>
-            </div>
-            <div class="col-md-6">
-                <h4 class="fw-bold">{{ alumni_intro.title}}</h4>
-                <p>T{{ alumni_intro.content }}</p>
+                <h4 class="fw-bold">{{ alumni_intro.title }}</h4>
+                <p>{{ alumni_intro.content }}</p>
             </div>
         </div>
 
@@ -50,31 +44,12 @@
             <div class="row text-center">
                 {% for member in alumni_board %}
                     <div class="col-md-3 mb-4">
-                    <img src="{{ alumni_board.image.url }}" class="img-fluid rounded mb-2" alt="{{ alumni_board.role }}">
-                    <h6 class="fw-bold">{{ alumni_board.full_name}}</h6>
-                    <p class="text-muted small">{{ alumni_board.role }}</p>
-                </div>
+                        <img src="{{ member.image.url }}" class="img-fluid rounded mb-2"
+                             alt="{{ member.role }}">
+                        <h6 class="fw-bold">{{ member.full_name }}</h6>
+                        <p class="text-muted small">{{ member.role }}</p>
+                    </div>
                 {% endfor %}
-                <div class="col-md-3 mb-4">
-                    <img src="{% static 'img/vice.jpg' %}" class="img-fluid rounded mb-2" alt="President">
-                    <h6 class="fw-bold">Jane Mwikali</h6>
-                    <p class="text-muted small">President</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <img src="{% static 'img/dean.jpg' %}" class="img-fluid rounded mb-2" alt="Vice President">
-                    <h6 class="fw-bold">Samuel Kimani</h6>
-                    <p class="text-muted small">Vice President</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <img src="{% static 'img/vice.jpg' %}" class="img-fluid rounded mb-2" alt="Secretary">
-                    <h6 class="fw-bold">Mercy Odhiambo</h6>
-                    <p class="text-muted small">Secretary</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <img src="{% static 'img/dean.jpg' %}" class="img-fluid rounded mb-2" alt="Treasurer">
-                    <h6 class="fw-bold">David Otieno</h6>
-                    <p class="text-muted small">Treasurer</p>
-                </div>
             </div>
         </div>
 
@@ -84,26 +59,11 @@
             <div class="row text-center">
                 {% for reason in why_stay_connected %}
                     <div class="col-md-4 mb-3">
-                    <i class="fas {{ why_stay_connected.icon }} fa-2x text-black mb-2"></i>
-                    <h6 class="fw-bold">{{ why_stay_connected.title }}</h6>
-                    <p>{{ why_stay_connected.description }}</p>
-                </div>
+                        <i class="fas {{ reason.icon }} fa-2x text-black mb-2"></i>
+                        <h6 class="fw-bold">{{ reason.title }}</h6>
+                        <p>{{ reason.description }}</p>
+                    </div>
                 {% endfor %}
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-user-friends fa-2x text-black mb-2"></i>
-                    <h6 class="fw-bold">Networking</h6>
-                    <p>Connect with graduates across industries for growth and opportunity.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-black mb-2"></i>
-                    <h6 class="fw-bold">Mentorship</h6>
-                    <p>Guide current students and new graduates into successful careers.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-donate fa-2x text-black mb-2"></i>
-                    <h6 class="fw-bold">Giving Back</h6>
-                    <p>Support scholarships, events, and campus development programs.</p>
-                </div>
             </div>
         </div>
 
@@ -122,11 +82,10 @@
         <!-- Alumni Board Contact Info -->
         <div class="bg-dark text-white p-4 rounded shadow-sm">
             <h4 class="fw-bold mb-3">Alumni Office Contact</h4>
-            <p><i class="fas fa-map-marker-alt me-2 text-light"></i> Alumni Affairs Office, Ushindi College, Machakos
-            </p>
-            <p><i class="fas fa-phone me-2 text-light"></i> +254 799 123 456</p>
-            <p><i class="fas fa-envelope me-2 text-light"></i> alumni@ushindicollege.ac.ke</p>
-            <p><i class="fas fa-globe me-2 text-light"></i> www.ushindicollege.ac.ke/alumni</p>
+            <p><i class="fas fa-map-marker-alt me-2 text-light"></i> {{ alumni_contacts.address}}</p>
+            <p><i class="fas fa-phone me-2 text-light"></i> {{ alumni_contacts.phone }}</p>
+            <p><i class="fas fa-envelope me-2 text-light"></i> {{ alumni_contacts.email }}</p>
+            <p><i class="fas fa-globe me-2 text-light"></i> {{ alumni_contacts.website }}</p>
         </div>
     </div>
 {% endblock %}

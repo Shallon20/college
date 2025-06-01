@@ -37,7 +37,7 @@ urlpatterns = [
     path('enroll/', views.enroll, name='enroll'),
     path('contact/', views.contact, name='contact'),
     path('frequently-asked-questions/', views.faq, name='faq'),
-    path('library/', views.library, name='library'),
+    path('library/', include('library.urls')),
     path('alumni-association/', include('alumni.urls')),
     path('admin/', admin.site.urls),
 ]

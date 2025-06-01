@@ -15,67 +15,20 @@
 
         <div class="accordion" id="faqAccordion">
             <!-- Question 1 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="faq1-heading">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                        How do I apply to Ushindi College?
-                    </button>
-                </h2>
-                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        You can apply online via our <a href="{% url 'enroll' %}">Enroll Now</a> page. Just fill out the
-                        form and submit your documents.
+            {% for faq in faqs %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq{{ forloop.counter }}-heading">
+                        <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ forloop.counter }}">
+                            {{faq.question}}
+                        </button>
+                    </h2>
+                    <div id="faq{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            {{ faq.answer|safe}}
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Question 2 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="faq2-heading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq2">
-                        Does the college offer accommodation?
-                    </button>
-                </h2>
-                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Yes, we offer both on-campus and off-campus hostels. Visit the <a
-                            href="{% url 'accommodation' %}">Hostel Accommodation</a> page for full details.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 3 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="faq3-heading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq3">
-                        What programs are available?
-                    </button>
-                </h2>
-                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        We offer diploma and certificate programs in Business, Computer Science, Nursing, Education, and
-                        more. Check the <a href="{% url 'courses' %}">Courses</a> page.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 4 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="faq4-heading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq4">
-                        How can I contact the administration?
-                    </button>
-                </h2>
-                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Use the <a href="{% url 'contact' %}">Contact Us</a> page or call us directly at +254 712 345
-                        678.
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

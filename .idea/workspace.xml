@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97da0a32-847c-472e-8430-940dd9dcccad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/alumni/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alumni/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alumni/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/alumni/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alumni/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/alumni/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alumni/templates/alumni.html" beforeDir="false" afterPath="$PROJECT_DIR$/alumni/templates/alumni.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alumni/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/alumni/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/alumni.html" beforeDir="false" afterPath="$PROJECT_DIR$/alumni/templates/alumni.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/library.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/templates/library.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +86,7 @@
       <recent name="$PROJECT_DIR$/myapp/static/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/library/templates" />
       <recent name="$PROJECT_DIR$/alumni/templates" />
     </key>
   </component>
@@ -144,7 +151,9 @@
       <workItem from="1748417226342" duration="3190000" />
       <workItem from="1748443603112" duration="9250000" />
       <workItem from="1748511469548" duration="12291000" />
-      <workItem from="1748601475965" duration="9727000" />
+      <workItem from="1748601475965" duration="10962000" />
+      <workItem from="1748768307257" duration="9735000" />
+      <workItem from="1748784300407" duration="1991000" />
     </task>
     <servers />
   </component>

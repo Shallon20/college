@@ -4,7 +4,7 @@ from myapp.models import CarouselSlide, NewsEvents, GalleryImage, Testimonial, F
     VisionMission, Stats, WhyChooseUs, Course, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, \
     Club, SportImage, ClubImage, HostelApplication, Hostel, HostelImage, DispensaryService, DispensaryContact, \
     DispensaryGallery, CafeteriaService, CafeteriaMenu, CafeteriaImage, CafeteriaMenuPDF, Enrollment, ContactUs, \
-    ContactInfo
+    ContactInfo, FAQ
 
 
 # Register your models here.
@@ -85,6 +85,8 @@ class ContactUsAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'subject',)
 class ContactInfoAdmin(admin.ModelAdmin):
     list_display = ('contact_detail', 'icon',)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('question', 'answer',)
 
 admin.site.register(CarouselSlide, CarouselSlideAdmin)
 admin.site.register(NewsEvents, NewsEventsAdmin)
@@ -118,3 +120,4 @@ admin.site.register(CafeteriaMenuPDF, CafeteriaMenuPDFAdmin)
 admin.site.register(Enrollment, EnrollmentAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(ContactInfo, ContactInfoAdmin)
+admin.site.register(FAQ, FAQAdmin)

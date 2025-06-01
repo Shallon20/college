@@ -1,0 +1,67 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+    <title>College Library</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <!-- Title & Intro -->
+        <div class="underline-title-wrap">
+            <div class="underline-title">
+                <h2 class="fw-bold">Ushindi College Library</h2>
+            </div>
+        </div>
+        <p>{{ library_intro.short_intro }}</p>
+        <!-- Library Intro -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="{{ library_intro.image.url }}" class="img-fluid rounded shadow-sm"
+                     alt="Library">
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-bold">About the Library</h4>
+                <p>{{ library_intro.content }}</p>
+
+            </div>
+        </div>
+
+        <!-- Section: Services Offered -->
+        <div class="bg-light p-4 rounded shadow-sm mb-5">
+            <h4 class="fw-bold mb-3 text-center">Library Services</h4>
+            <div class="row text-center">
+                {% for service in library_services %}
+                    <div class="col-md-4 mb-3">
+                        <i class="fas {{ service.icon }} fa-2x text-black mb-2"></i>
+                        <h6 class="fw-bold">{{ service.title }}</h6>
+                        <p>{{ service.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Section: Library Staff -->
+        <div class="my-5">
+            <h4 class="fw-bold text-center mb-4">Meet Our Library Team</h4>
+            <div class="row text-center">
+                {% for staff in library_staff %}
+                    <div class="col-md-3 mb-4">
+                        <img src="{{ staff.image.url }}" class="img-fluid rounded mb-2" alt="{{ staff.role }}">
+                        <h6 class="fw-bold">{{ staff.full_name }}</h6>
+                        <p class="text-muted small">{{ staff.role }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="bg-dark text-white p-4 rounded shadow-sm">
+            <h4 class="fw-bold mb-3">Library Contact Information</h4>
+            <p><i class="fas fa-map-marker-alt me-2 text-light"></i> {{ library_contacts.address }}
+            </p>
+            <p><i class="fas fa-phone me-2 text-light"></i> {{ library_contacts.phone }}</p>
+            <p><i class="fas fa-envelope me-2 text-light"></i> {{ library_contacts.email }}</p>
+            <p><i class="fas fa-clock me-2 text-light"></i> {{ library_contacts.open_hours }}</p>
+        </div>
+    </div>
+{% endblock %}

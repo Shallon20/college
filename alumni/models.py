@@ -9,6 +9,9 @@ class Alumni(models.Model):
 
     def __str__(self):
         return self.short_description
+    class Meta:
+        db_table = "alumni"
+        verbose_name_plural = "Alumni"
 
 class AlumniBoard(models.Model):
     image = models.ImageField(upload_to='alumni', null=True, blank=True)
@@ -17,6 +20,9 @@ class AlumniBoard(models.Model):
 
     def __str__(self):
         return self.full_name
+    class Meta:
+        db_table = "alumni_board"
+        verbose_name_plural = "Alumni Board"
 
 class WhyStayConnected(models.Model):
     icon = models.CharField(max_length=50, null=True, blank=True)
@@ -25,6 +31,9 @@ class WhyStayConnected(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        db_table = "why_stay_connected"
+        verbose_name_plural = "Why Stay Connected"
 
 class AlumniMessage(models.Model):
     full_name = models.CharField(max_length=100)
@@ -36,3 +45,19 @@ class AlumniMessage(models.Model):
 
     def __str__(self):
         return f"{self.full_name} ({self.graduation_year})"
+    class Meta:
+        db_table = "alumni_message"
+        verbose_name_plural = "Alumni Message"
+
+class AlumniContacts(models.Model):
+    address = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField(max_length=100)
+    website = models.URLField(max_length=100)
+
+    def __str__(self):
+        return self.address
+
+    class Meta:
+        db_table = "alumni_contacts"
+        verbose_name_plural = "Alumni Contacts"

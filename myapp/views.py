@@ -3,7 +3,7 @@ from myapp.forms import HostelApplicationForm, EnrollmentForm, ContactUsForm
 from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
     VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel, \
     DispensaryService, DispensaryContact, DispensaryGallery, CafeteriaImage, CafeteriaService, CafeteriaMenu, \
-    CafeteriaMenuPDF, ContactInfo
+    CafeteriaMenuPDF, ContactInfo, FAQ
 
 
 # Create your views here.
@@ -134,7 +134,6 @@ def contact(request):
 
 
 def faq(request):
-    return render(request, 'faq.html')
+    faqs = FAQ.objects.all()
+    return render(request, 'faq.html', {'faqs': faqs})
 
-def library(request):
-    return render(request, 'library.html')
