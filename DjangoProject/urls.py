@@ -39,6 +39,7 @@ urlpatterns = [
     path('frequently-asked-questions/', views.faq, name='faq'),
     path('library/', include('library.urls')),
     path('alumni-association/', include('alumni.urls')),
+    path('search/', views.site_search, name='site_search'),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:

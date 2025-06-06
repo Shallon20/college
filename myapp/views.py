@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Q
 from myapp.forms import HostelApplicationForm, EnrollmentForm, ContactUsForm
 from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
     VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel, \
     DispensaryService, DispensaryContact, DispensaryGallery, CafeteriaImage, CafeteriaService, CafeteriaMenu, \
-    CafeteriaMenuPDF, ContactInfo, FAQ
-
+    CafeteriaMenuPDF, ContactInfo, FAQ, Course
+from alumni.models import Alumni
 
 # Create your views here.
 def home(request):
@@ -137,3 +138,18 @@ def faq(request):
     faqs = FAQ.objects.all()
     return render(request, 'faq.html', {'faqs': faqs})
 
+def site_search(request):
+    query = request.GET.get('search')
+    categorized_results = {}
+    if query:
+        categorized_results['Courses'] = Course.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+        categorized_results['Faculties'] = Faculty.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        categorized_results['News & Events'] = NewsEvents.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+        categorized_results['FAQs'] = FAQ.objects.filter(Q(question__icontains=query) | Q(answer__icontains=query))
+        categorized_results['Alumni'] = Alumni.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
+        categorized_results['Jobs'] = JobsInternshipsAds.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+        categorized_results['Clubs'] = Club.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        categorized_results['Sports'] = Sport.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        categorized_results['Hostels'] = Hostel.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        categorized_results['Cafeteria'] = CafeteriaService.objects.filter(Q(short_description__icontains=query) | Q(services__icontains=query))
+    return render(request, 'site_search.html', {'query': query, 'categorized_results': categorized_results})

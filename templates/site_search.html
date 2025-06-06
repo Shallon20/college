@@ -1,0 +1,85 @@
+{% extends 'master.html' %}
+{% block title %}<title>Search Results</title>{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <h3 class="mb-4">Search Results for "{{ query }}"</h3>
+
+    {% if categorized_results %}
+      {% for category, items in categorized_results.items %}
+        {% if items %}
+          <h5 class="fw-bold mt-4">{{ category }}</h5>
+          <ul class="list-group mb-3">
+          {% for item in items %}
+            <li class="list-group-item">
+              {% if category == "Courses" %}
+                <strong>{{ item.title }}</strong>
+                <p>{{ item.description|truncatewords:20 }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'courses' %}#{{ item.pk }}" class="btn btn-sm btn-outline-primary">View More</a>
+                </div>
+              {% elif category == "Faculties" %}
+                <strong>{{ item.name }}</strong>
+                <p>{{ item.description|truncatewords:20 }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'home' %}#faculties" class="btn btn-sm btn-outline-primary">View More</a>
+                </div>
+              {% elif category == "News & Events" %}
+                <a href="{% url 'news_events_detail' slug=item.slug %}">
+                <strong>{{ item.title }}</strong>
+                </a>
+                <p>{{ item.description|truncatewords:20 }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'news_events_detail' slug=item.slug %}" class="btn btn-sm btn-outline-secondary">Read More</a>
+                </div>
+              {% elif category == "FAQs" %}
+                <strong>Q:</strong> {{ item.question }}<br>
+                <strong>A:</strong> {{ item.answer|truncatewords:20 }}
+                <div class="mt-2">
+                  <a href="{% url 'faq' %}" class="btn btn-sm btn-outline-secondary">Go to FAQs</a>
+                </div>
+              {% elif category == "Alumni" %}
+                <strong>{{ item.title }}</strong>
+                <p>{{ item.content|truncatewords:20 }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'alumni' %}" class="btn btn-sm btn-outline-primary">Visit Alumni Page</a>
+                </div>
+              {% elif category == "Jobs" %}
+                <strong>{{ item.title }}</strong>
+                <p>Deadline: {{ item.deadline }}</p>
+                <div class="mt-2">
+                  <a href="{{ item.link }}" class="btn btn-sm btn-outline-success" target="_blank">Apply Now</a>
+                </div>
+              {% elif category == "Clubs" %}
+                <strong>{{ item.name }}</strong>
+                <p>{{ item.description|truncatewords:20 }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'sportsClubs' %}#clubs" class="btn btn-sm btn-outline-primary">More Info</a>
+                </div>
+              {% elif category == "Sports" %}
+                <strong>{{ item.name }}</strong>
+                <p>Captain: {{ item.captain_name }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'sportsClubs' %}#sports" class="btn btn-sm btn-outline-primary">View Sport</a>
+                </div>
+              {% elif category == "Hostels" %}
+                <strong>{{ item.name }}</strong>
+                <p>{{ item.description|truncatewords:20 }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'accommodation' %}#{{ item.pk }}" class="btn btn-sm btn-outline-primary">View Hostel</a>
+                </div>
+              {% elif category == "Cafeteria" %}
+                <p>{{ item.short_description|truncatewords:20 }}</p>
+                <div class="mt-2">
+                  <a href="{% url 'cafeteria' %}" class="btn btn-sm btn-outline-primary">View Cafeteria</a>
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+        <p class="text-muted">No results found.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -29,7 +29,7 @@
                 <a class="text-white me-3 small text-decoration-none" href="{% url 'faq' %}">FAQs</a>
                 <a class="text-white me-3 small text-decoration-none" href="{% url 'alumni' %}">Alumni</a>
             </div>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" method="get" action="{% url 'site_search' %}">
                 <input name="search" class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-sm btn-light" type="submit">Search</button>
             </form>
