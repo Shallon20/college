@@ -205,7 +205,7 @@ class HostelApplication(models.Model):
 
 class DispensaryService(models.Model):
     short_description = models.CharField(max_length=300)
-    service_list = models.CharField(blank=True)
+    service_list = models.CharField(blank=True, max_length=500)
     image = models.ImageField(upload_to='dispensary_service/')
     def __str__(self):
         return self.short_description
@@ -272,7 +272,7 @@ class ContactUs(models.Model):
 
 class ContactInfo(models.Model):
     contact_detail = models.CharField(max_length=100)
-    icon = models.CharField(blank=True)
+    icon = models.CharField(blank=True, max_length=50)
 
 class FAQ(models.Model):
     question = models.CharField(max_length=255)
@@ -280,3 +280,25 @@ class FAQ(models.Model):
 
     def __str__(self):
        return self.question
+    
+class Logo(models.Model):
+    image = models.ImageField(upload_to='logo/')
+    site_name = models.CharField(max_length=50, blank=False)
+
+    def __str__(self):
+        return self.site_name
+    
+    class Meta:
+        db_table = 'logo'
+        verbose_name_plural = 'Logo'
+
+class SocialLinks(models.Model):
+    name = models.CharField(max_length=50)
+    icon_class = models.CharField(max_length=100)
+    url = models.URLField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        db_table = 'social_links'
+        verbose_name_plural = 'Social Links'
