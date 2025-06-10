@@ -67,12 +67,13 @@
             <h2 class="underline-title">College Leadership</h2>
         </div>
         <div class="row text-center">
+            <p>The staff leadership team at Ushindi College is dedicated to fostering a supportive, efficient, and visionary learning environment. Through collaboration, mentorship, and strategic guidance, they ensure the smooth operation of college activities and promote academic and personal growth for both students and staff.</p>
             {% for staff in staffs %}
-                <div class="col-md-3">
-                <img src="{{staff.photo.url}}" class="img-fluid mb-2 w-50" alt="Dean">
-                <h6>{{ staff.name}}</h6>
-                <p class="text-muted">{{ staff.role }}</p>
-            </div>
+                <div class="col-md-3 mt-3">
+                    <img src="{{staff.photo.url}}" class="img-fluid mb-2 w-50" alt="Dean">
+                    <h6>{{ staff.name}}</h6>
+                    <p class="text-muted">{{ staff.role }}</p>
+                </div>
             {% endfor %}
         </div>
     </div>

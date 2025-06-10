@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from myapp.models import CarouselSlide, NewsEvents, GalleryImage, Testimonial, Faculty, AboutInfo, StaffMember, \
+from myapp.models import CarouselSlide, NewsEvents, GalleryImage, Testimonial, Faculty, AboutInfo, StaffLeadership, \
     VisionMission, Stats, WhyChooseUs, Course, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, \
     Club, SportImage, ClubImage, HostelApplication, Hostel, HostelImage, DispensaryService, DispensaryContact, \
     DispensaryGallery, CafeteriaService, CafeteriaMenu, CafeteriaImage, CafeteriaMenuPDF, Enrollment, ContactUs, \
@@ -27,7 +27,7 @@ class StatsAdmin(admin.ModelAdmin):
     list_display = ('label', 'value',)
 class VisionMissionAdmin(admin.ModelAdmin):
     list_display = ('type', 'content',)
-class StaffMemberAdmin(admin.ModelAdmin):
+class StaffLeadershipAdmin(admin.ModelAdmin):
     list_display = ('name', 'role',)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('faculty', 'title', 'description',)
@@ -101,7 +101,7 @@ admin.site.register(AboutInfo, AboutInfoAdmin)
 admin.site.register(WhyChooseUs, WhyChooseUsAdmin)
 admin.site.register (Stats, StatsAdmin)
 admin.site.register(VisionMission, VisionMissionAdmin)
-admin.site.register(StaffMember, StaffMemberAdmin)
+admin.site.register(StaffLeadership, StaffLeadershipAdmin)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(DeanProfile, DeanProfileAdmin)
 admin.site.register(DeanStaff, DeanStaffAdmin)

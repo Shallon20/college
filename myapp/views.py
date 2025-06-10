@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from myapp.forms import HostelApplicationForm, EnrollmentForm, ContactUsForm
 from myapp.models import CarouselSlide, NewsEvents, Faculty, GalleryImage, Testimonial, AboutInfo, WhyChooseUs, Stats, \
-    VisionMission, StaffMember, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel, \
+    VisionMission, StaffLeadership, DeanProfile, DeanStaff, StudentLeadership, JobsInternshipsAds, Sport, Club, Hostel, \
     DispensaryService, DispensaryContact, DispensaryGallery, CafeteriaImage, CafeteriaService, CafeteriaMenu, \
     CafeteriaMenuPDF, ContactInfo, FAQ, Course
 from alumni.models import Alumni
@@ -30,7 +30,7 @@ def about(request):
     why_choose_us = WhyChooseUs.objects.all()
     stats = Stats.objects.all()
     vision_mission = VisionMission.objects.all()
-    staffs = StaffMember.objects.all()
+    staffs = StaffLeadership.objects.all()
     context = {
         'about_info': about_info,
         'why_choose_us': why_choose_us,

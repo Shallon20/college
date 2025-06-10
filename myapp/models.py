@@ -26,6 +26,9 @@ class NewsEvents(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name_plural = 'News & Events'
 
 class Faculty(models.Model):
     name = models.CharField(max_length=150)
@@ -65,6 +68,9 @@ class AboutInfo(models.Model):
 
     def __str__(self):
         return self.content
+    class Meta:
+        verbose_name_plural = 'About Info'
+    
 
 class WhyChooseUs(models.Model):
     title = models.CharField(max_length=50)
@@ -74,6 +80,8 @@ class WhyChooseUs(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        verbose_name_plural = 'Why Choose Us'
 
 class Stats(models.Model):
     label = models.CharField(max_length=50)
@@ -82,6 +90,8 @@ class Stats(models.Model):
 
     def __str__(self):
         return f"{self.label}: {self.value}"
+    class Meta:
+        verbose_name_plural = 'Stats'
 
 class VisionMission(models.Model):
     type = models.CharField(max_length=50, choices=[
@@ -94,14 +104,18 @@ class VisionMission(models.Model):
 
     def __str__(self):
         return self.type
+    class Meta:
+        verbose_name_plural = 'Vision & Mission'
 
-class StaffMember(models.Model):
+class StaffLeadership(models.Model):
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
     photo = models.ImageField(upload_to='staff/')
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = 'Staff Leadership'
 
 class Course(models.Model):
     faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE, related_name='courses')
@@ -125,6 +139,8 @@ class DeanProfile(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = 'Dean Profile'
 
 class DeanStaff(models.Model):
     name = models.CharField(max_length=100)
@@ -139,11 +155,21 @@ class StudentLeadership(models.Model):
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name_plural = 'Student Leadership'
+
 class JobsInternshipsAds(models.Model):
     title = models.CharField(max_length=100)
     deadline = models.DateField(blank=False)
     description = models.TextField(max_length=300)
     link = models.URLField(blank=False)
+
+    def __str__(self):
+        return self.title
+    class Meta:
+        verbose_name_plural = 'Jobs & Internship Ads'
 
 class Sport(models.Model):
     name = models.CharField(max_length=100)
@@ -226,6 +252,8 @@ class DispensaryGallery(models.Model):
 
     def __str__(self):
         return self.caption or f"Dispensary Image {self.id}"
+    class Meta:
+        verbose_name_plural = 'Dispensary Gallery'
 
 class CafeteriaService(models.Model):
     short_description = models.TextField(max_length=500, blank=True)
@@ -270,9 +298,19 @@ class ContactUs(models.Model):
     subject = models.CharField(max_length=100)
     message = models.TextField(blank=False)
 
+    def __str__(self):
+        return self.email
+    class Meta:
+        verbose_name_plural = 'Contact Us'
+
 class ContactInfo(models.Model):
     contact_detail = models.CharField(max_length=100)
     icon = models.CharField(blank=True, max_length=50)
+
+    def __str__(self):
+        return self.contact_detail
+    class Meta:
+        verbose_name_plural = 'Contact Info'
 
 class FAQ(models.Model):
     question = models.CharField(max_length=255)
